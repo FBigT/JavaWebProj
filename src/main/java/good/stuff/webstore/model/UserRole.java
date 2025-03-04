@@ -1,0 +1,9 @@
+package good.stuff.webstore.model;
+
+public enum UserRole {
+    ADMIN,
+    USER,
+    ANONYMOUS;
+
+    public UserRole getValue(String value) {return UserRole.valueOf(value.toUpperCase());}
+}
