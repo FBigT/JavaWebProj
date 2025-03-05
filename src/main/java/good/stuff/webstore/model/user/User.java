@@ -1,4 +1,4 @@
-package good.stuff.webstore.model;
+package good.stuff.webstore.model.user;
 
 import jakarta.persistence.*;
 
@@ -7,24 +7,24 @@ import jakarta.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String username;
     private String email;
-    private String hashPassword;
+    private String password;
     private UserRole role = UserRole.ANONYMOUS;
 
     public User() {
     }
 
-    public User(int id, String username, String email, String hashPassword, UserRole role) {
+    public User(long id, String username, String email, String hashPassword, UserRole role) {
         this.id = id;
         this.username = username;
         this.email = email;
-        this.hashPassword = hashPassword;
+        this.password = hashPassword;
         this.role = role;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -48,12 +48,12 @@ public class User {
         this.email = email;
     }
 
-    public String getHashPassword() {
-        return hashPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setHashPassword(String hashPassword) {
-        this.hashPassword = hashPassword;
+    public void setPassword(String hashPassword) {
+        this.password = hashPassword;
     }
 
     public UserRole getRole() {

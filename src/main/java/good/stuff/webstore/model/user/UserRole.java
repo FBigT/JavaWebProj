@@ -1,4 +1,4 @@
-package good.stuff.webstore.model;
+package good.stuff.webstore.model.user;
 
 public enum UserRole {
     ADMIN,

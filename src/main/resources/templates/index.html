@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Home - WebStore</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+
+    <!-- Show login/register if not authenticated -->
+    <span sec:authorize="!isAuthenticated()">
+            <a href="/auth/login">Login</a>
+            <a href="/auth/register">Register</a>
+        </span>
+
+    <!-- Show logout if authenticated -->
+    <span sec:authorize="isAuthenticated()">
+            <a href="/user/home">Dashboard</a>
+            <form th:action="@{/logout}" method="post" style="display:inline;">
+                <button type="submit">Logout</button>
+            </form>
+        </span>
+</nav>
+
+<!-- Main Content -->
+<header>
+    <h1>Welcome to WebStore</h1>
+    <p>Shop for the best products at unbeatable prices.</p>
+</header>
+
+<section>
+    <h2>Featured Products</h2>
+    <p>Check out our latest products!</p>
+    <a href="/products">Browse Products</a>
+</section>
+
+</body>
+</html>

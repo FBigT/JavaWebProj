@@ -1,6 +1,6 @@
 package good.stuff.webstore.service;
 
-import good.stuff.webstore.model.User;
+import good.stuff.webstore.model.user.User;
 import good.stuff.webstore.repository.UserRepository;
 import good.stuff.webstore.utils.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class UserService {
     }
 
     public void registerUser(User user) {
-        user.setHashPassword(PasswordEncoder.hashPassword(user.getHashPassword()));
+        user.setPassword(PasswordEncoder.hashPassword(user.getPassword()));
         userRepository.save(user);
     }
 }
